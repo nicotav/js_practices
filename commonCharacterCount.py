@@ -1,18 +1,10 @@
 def solution(s1, s2):
-    common_chars = {}  # dictionary key: char, value: count
-
-    for character in s1:
-        if character in s2:
-            # check if key exists
-            if character not in common_chars:
-                common_chars[character] = 1
-            else:
-                common_chars[character] += 1
-
-    # get all the items in the dictionary
-    items = common_chars.items()
-
-    return items
+    count = 0
+    for letter in s1:
+        if letter in s2:
+            count += 1
+            s2 = s2.replace(letter, '', 1)
+    return count
 
 
-print(solution("abca", "xyzbac"))
+print(solution("abca", "xybzac"))
